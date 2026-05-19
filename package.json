@@ -1,0 +1,23 @@
+{
+  "name": "baitap",
+  "version": "1.0.0",
+  "description": "Coffee product showcase and admin CRUD dashboard for Software Engineering coursework.",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "node src/server.js",
+    "start": "node src/server.js",
+    "db:init": "node src/init-db.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dayjs": "^1.11.20",
+    "dotenv": "^17.4.2",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "mysql2": "^3.22.3"
+  }
+}

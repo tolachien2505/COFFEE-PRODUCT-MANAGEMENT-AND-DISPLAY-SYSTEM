@@ -1,0 +1,93 @@
+<%- include('../partials/head', { title, activePage, flash }) %>
+
+<main class="form-layout">
+  <section class="form-heading">
+    <a class="back-link" href="/admin">
+      <i data-lucide="arrow-left"></i>
+      Quay lại dashboard
+    </a>
+    <p class="eyebrow"><%= mode === 'create' ? 'Create product' : 'Update product' %></p>
+    <h1><%= mode === 'create' ? 'Thêm sản phẩm mới' : 'Sửa sản phẩm' %></h1>
+  </section>
+
+  <% if (errors && errors.length) { %>
+    <section class="validation-box">
+      <strong>Thông tin chưa hợp lệ</strong>
+      <ul>
+        <% errors.forEach((error) => { %>
+          <li><%= error.msg %></li>
+        <% }) %>
+      </ul>
+    </section>
+  <% } %>
+
+  <section class="product-form-shell">
+    <form class="product-form" method="post" action="<%= mode === 'create' ? '/admin/products' : '/admin/products/' + product.Id %>">
+      <div class="field">
+        <label for="Name">Tên sản phẩm</label>
+        <input id="Name" name="Name" value="<%= product.Name %>" placeholder="Ví dụ: Latte Caramel Muối Biển" required>
+      </div>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="Price">Giá bán</label>
+          <input id="Price" name="Price" type="number" min="1" step="1000" value="<%= product.Price %>" placeholder="59000" required>
+        </div>
+        <div class="field">
+          <label for="Category_Id">Danh mục</label>
+          <select id="Category_Id" name="Category_Id" required>
+            <option value="">Chọn danh mục</option>
+            <% categories.forEach((category) => { %>
+              <option value="<%= category.Id %>" <%= String(product.Category_Id) === String(category.Id) ? 'selected' : '' %>>
+                <%= category.Name %>
+              </option>
+            <% }) %>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="Description">Mô tả ngắn</label>
+        <textarea id="Description" name="Description" rows="5" placeholder="Mô tả hương vị, thành phần hoặc điểm nổi bật..." required><%= product.Description %></textarea>
+      </div>
+
+      <div class="field">
+        <label for="Image_URL">Hình ảnh sản phẩm</label>
+        <input id="Image_URL" name="Image_URL" type="url" value="<%= product.Image_URL %>" placeholder="https://..." required data-preview-input>
+      </div>
+
+      <fieldset class="status-field">
+        <legend>Trạng thái</legend>
+        <label>
+          <input type="radio" name="Status" value="in_stock" <%= product.Status !== 'out_of_stock' ? 'checked' : '' %>>
+          <span>Còn hàng</span>
+        </label>
+        <label>
+          <input type="radio" name="Status" value="out_of_stock" <%= product.Status === 'out_of_stock' ? 'checked' : '' %>>
+          <span>Hết hàng</span>
+        </label>
+      </fieldset>
+
+      <div class="form-actions">
+        <a class="btn ghost" href="/admin">Hủy</a>
+        <button class="btn primary" type="submit" data-loading-button>
+          <i data-lucide="save"></i>
+          <%= mode === 'create' ? 'Lưu sản phẩm' : 'Cập nhật' %>
+        </button>
+      </div>
+    </form>
+
+    <aside class="preview-panel">
+      <p class="eyebrow">Live preview</p>
+      <div class="preview-card">
+        <img src="<%= product.Image_URL || 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=85' %>" alt="Xem trước sản phẩm" data-preview-image>
+        <div>
+          <span>Ảnh sẽ tự cập nhật khi nhập URL hợp lệ.</span>
+          <strong><%= product.Name || 'Tên sản phẩm' %></strong>
+        </div>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<%- include('../partials/footer') %>

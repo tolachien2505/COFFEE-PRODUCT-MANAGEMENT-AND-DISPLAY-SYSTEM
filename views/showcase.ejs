@@ -1,0 +1,118 @@
+<%- include('partials/head', { title, activePage, flash }) %>
+
+<main>
+  <section class="hero">
+    <div class="hero-media" aria-hidden="true"></div>
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Freshly brewed catalog</p>
+      <h1>BeanHaus Coffee</h1>
+      <p>
+        Khám phá menu cà phê và trà trái cây được lấy trực tiếp từ cơ sở dữ liệu.
+        Tìm nhanh món yêu thích, lọc theo danh mục và xem trạng thái còn hàng tức thì.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#products">
+          <i data-lucide="shopping-bag"></i>
+          Xem menu
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-intro">
+    <div>
+      <p class="eyebrow">Product showcase</p>
+      <h2>Danh sách sản phẩm</h2>
+    </div>
+    <p><%= products.length %> sản phẩm phù hợp với bộ lọc hiện tại.</p>
+  </section>
+
+  <section class="filter-band" id="products">
+    <form class="search-form" action="/" method="get" data-auto-submit>
+      <label class="search-box">
+        <i data-lucide="search"></i>
+        <input type="search" name="q" value="<%= query.q || '' %>" placeholder="Tìm theo tên sản phẩm...">
+      </label>
+      <% if (activeCategory) { %>
+        <input type="hidden" name="category" value="<%= activeCategory %>">
+      <% } %>
+      <button class="btn dark" type="submit">
+        <i data-lucide="filter"></i>
+        Lọc
+      </button>
+    </form>
+
+    <div class="chip-row" aria-label="Lọc theo danh mục">
+      <a class="chip <%= !activeCategory ? 'active' : '' %>" href="/?q=<%= encodeURIComponent(query.q || '') %>">Tất cả</a>
+      <% categories.forEach((category) => { %>
+        <a class="chip <%= String(activeCategory) === String(category.Id) ? 'active' : '' %>"
+           href="/?category=<%= category.Id %>&q=<%= encodeURIComponent(query.q || '') %>">
+          <%= category.Name %>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+
+  <% if (!products.length) { %>
+    <section class="empty-state reveal">
+      <i data-lucide="package-search"></i>
+      <h3>Không tìm thấy sản phẩm</h3>
+      <p>Hãy thử từ khóa khác hoặc bỏ bớt bộ lọc danh mục.</p>
+      <a class="btn primary" href="/">Xem tất cả</a>
+    </section>
+  <% } else { %>
+    <section class="product-grid">
+      <% products.forEach((product, index) => { %>
+        <article class="product-card reveal" style="--delay: <%= index * 45 %>ms">
+          <div class="product-image">
+            <img src="<%= product.Image_URL %>" alt="<%= product.Name %>" loading="lazy">
+            <span class="status-badge <%= product.Status %>"><%= format.statusLabel(product.Status) %></span>
+          </div>
+          <div class="product-content">
+            <div>
+              <p class="category"><%= product.Category_Name %></p>
+              <h3><%= product.Name %></h3>
+              <p class="description"><%= product.Description %></p>
+            </div>
+            <div class="product-footer">
+              <strong><%= format.currency(product.Price) %></strong>
+              <button class="icon-btn quick-view"
+                      type="button"
+                      aria-label="Xem nhanh <%= product.Name %>"
+                      data-name="<%= product.Name %>"
+                      data-price="<%= format.currency(product.Price) %>"
+                      data-description="<%= product.Description %>"
+                      data-image="<%= product.Image_URL %>"
+                      data-category="<%= product.Category_Name %>"
+                      data-status="<%= format.statusLabel(product.Status) %>">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      <% }) %>
+    </section>
+  <% } %>
+</main>
+
+<div class="modal" id="productModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-modal></div>
+  <section class="modal-panel product-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="icon-btn close-modal" type="button" data-close-modal aria-label="Đóng">
+      <i data-lucide="x"></i>
+    </button>
+    <img id="modalImage" src="" alt="">
+    <div>
+      <p class="category" id="modalCategory"></p>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <div class="modal-meta">
+        <strong id="modalPrice"></strong>
+        <span class="status-badge" id="modalStatus"></span>
+      </div>
+    </div>
+  </section>
+</div>
+
+<%- include('partials/footer') %>

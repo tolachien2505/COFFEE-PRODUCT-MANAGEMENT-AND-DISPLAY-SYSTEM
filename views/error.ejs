@@ -1,0 +1,13 @@
+<%- include('partials/head', { title, activePage, flash: null }) %>
+
+<main class="error-page">
+  <i data-lucide="cloud-alert"></i>
+  <h1><%= title %></h1>
+  <p><%= message %></p>
+  <% if (error) { %>
+    <pre><%= error.message %></pre>
+  <% } %>
+  <a class="btn primary" href="/">Về trang sản phẩm</a>
+</main>
+
+<%- include('partials/footer') %>

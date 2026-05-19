@@ -1,0 +1,51 @@
+Error: Access denied for user 'ctoolnet_cafebaitap'@'14.162.236.192' (using password: YES)
+    at getCategories (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\src\server.js:67:29)
+    at D:\CNTT\CONGNGHEPHAMMEM\BAITAP\src\server.js:136:7
+    at Layer.handleRequest (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\layer.js:152:17)
+    at next (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\route.js:117:3)
+    at handle (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\layer.js:152:17)
+    at D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:295:15
+    at processParams (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:582:12)
+    at next (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:291:5) {
+  code: 'ER_ACCESS_DENIED_ERROR',
+  errno: 1045,
+  sqlState: '28000',
+  sqlMessage: "Access denied for user 'ctoolnet_cafebaitap'@'14.162.236.192' (using password: YES)",
+  sql: undefined
+}
+Error: Access denied for user 'ctoolnet_cafebaitap'@'42.114.157.84' (using password: YES)
+    at getCategories (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\src\server.js:67:29)
+    at D:\CNTT\CONGNGHEPHAMMEM\BAITAP\src\server.js:136:7
+    at Layer.handleRequest (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\layer.js:152:17)
+    at next (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\route.js:117:3)
+    at handle (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\layer.js:152:17)
+    at D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:295:15
+    at processParams (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:582:12)
+    at next (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:291:5) {
+  code: 'ER_ACCESS_DENIED_ERROR',
+  errno: 1045,
+  sqlState: '28000',
+  sqlMessage: "Access denied for user 'ctoolnet_cafebaitap'@'42.114.157.84' (using password: YES)",
+  sql: undefined
+}
+Error: Access denied for user 'ctoolnet_cafebaitap'@'183.80.251.51' (using password: YES)
+    at getDashboardStats (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\src\server.js:96:39)
+    at D:\CNTT\CONGNGHEPHAMMEM\BAITAP\src\server.js:159:7
+    at Layer.handleRequest (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\layer.js:152:17)
+    at next (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\route.js:117:3)
+    at handle (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\lib\layer.js:152:17)
+    at D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:295:15
+    at processParams (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:582:12)
+    at next (D:\CNTT\CONGNGHEPHAMMEM\BAITAP\node_modules\router\index.js:291:5) {
+  code: 'ER_ACCESS_DENIED_ERROR',
+  errno: 1045,
+  sqlState: '28000',
+  sqlMessage: "Access denied for user 'ctoolnet_cafebaitap'@'183.80.251.51' (using password: YES)",
+  sql: undefined
+}

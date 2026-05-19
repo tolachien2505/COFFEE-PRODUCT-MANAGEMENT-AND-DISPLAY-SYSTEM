@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BeanHaus Coffee | Coffee Product System</title>
+  <meta name="description" content="Website quản lý và hiển thị sản phẩm cà phê với Express, EJS và MySQL.">
+  <link rel="stylesheet" href="/css/styles.css">
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="/js/app.js"></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="BeanHaus Coffee">
+        <span class="brand-mark">BH</span>
+        <span>
+          <strong>BeanHaus</strong>
+          <small>Coffee products</small>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a class="active" href="/">
+          <i data-lucide="coffee"></i>
+          Sản phẩm
+        </a>
+        <a class="" href="/admin">
+          <i data-lucide="layout-dashboard"></i>
+          Quản trị
+        </a>
+      </nav>
+    </header>
+
+    
+
+
+<main>
+  <section class="hero">
+    <div class="hero-media" aria-hidden="true"></div>
+    <div class="hero-copy reveal">
+      <p class="eyebrow">Freshly brewed catalog</p>
+      <h1>BeanHaus Coffee</h1>
+      <p>
+        Khám phá menu cà phê và trà trái cây được lấy trực tiếp từ cơ sở dữ liệu.
+        Tìm nhanh món yêu thích, lọc theo danh mục và xem trạng thái còn hàng tức thì.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#products">
+          <i data-lucide="shopping-bag"></i>
+          Xem menu
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-intro">
+    <div>
+      <p class="eyebrow">Product showcase</p>
+      <h2>Danh sách sản phẩm</h2>
+    </div>
+    <p>9 sản phẩm phù hợp với bộ lọc hiện tại.</p>
+  </section>
+
+  <section class="filter-band" id="products">
+    <form class="search-form" action="/" method="get" data-auto-submit>
+      <label class="search-box">
+        <i data-lucide="search"></i>
+        <input type="search" name="q" value="" placeholder="Tìm theo tên sản phẩm...">
+      </label>
+      
+      <button class="btn dark" type="submit">
+        <i data-lucide="filter"></i>
+        Lọc
+      </button>
+    </form>
+
+    <div class="chip-row" aria-label="Lọc theo danh mục">
+      <a class="chip active" href="/?q=">Tất cả</a>
+      
+        <a class="chip "
+           href="/?category=1&q=">
+          Cà phê pha máy
+        </a>
+      
+        <a class="chip "
+           href="/?category=2&q=">
+          Cà phê truyền thống
+        </a>
+      
+        <a class="chip "
+           href="/?category=3&q=">
+          Cold Brew
+        </a>
+      
+        <a class="chip "
+           href="/?category=4&q=">
+          Trà trái cây
+        </a>
+      
+    </div>
+  </section>
+
+  
+    <section class="product-grid">
+      
+        <article class="product-card reveal" style="--delay: 0ms">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Trà Dâu Hibiscus" loading="lazy">
+            <span class="status-badge out_of_stock">Hết hàng</span>
+          </div>
+          <div class="product-content">
+            <div>
+              <p class="category">Trà trái cây</p>
+              <h3>Trà Dâu Hibiscus</h3>
+              <p class="description">Hibiscus chua dịu, dâu tây tươi và hương hoa nhẹ nhàng.</p>
+            </div>
+            <div class="product-footer">
+              <strong>59.000 ₫</strong>
+              <button class="icon-btn quick-view"
+                      type="button"
+                      aria-label="Xem nhanh Trà Dâu Hibiscus"
+                      data-name="Trà Dâu Hibiscus"
+                      data-price="59.000 ₫"
+                      data-description="Hibiscus chua dịu, dâu tây tươi và hương hoa nhẹ nhàng."
+                      data-image="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                      data-category="Trà trái cây"
+                      data-status="Hết hàng">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      
+        <article class="product-card reveal" style="--delay: 45ms">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Trà Đào Cam Sả" loading="lazy">
+            <span class="status-badge in_stock">Còn hàng</span>
+          </div>
+          <div class="product-content">
+            <div>
+              <p class="category">Trà trái cây</p>
+              <h3>Trà Đào Cam Sả</h3>
+              <p class="description">Trà đen thơm, đào miếng, cam tươi và sả thanh nhẹ.</p>
+            </div>
+            <div class="product-footer">
+              <strong>55.000 ₫</strong>
+              <button class="icon-btn quick-view"
+                      type="button"
+                      aria-label="Xem nhanh Trà Đào Cam Sả"
+                      data-name="Trà Đào Cam Sả"
+                      data-price="55.000 ₫"
+                      data-description="Trà đen thơm, đào miếng, cam tươi và sả thanh nhẹ."
+                      data-image="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                      data-category="Trà trái cây"
+                      data-status="Còn hàng">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      
+        <article class="product-card reveal" style="--delay: 90ms">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Cold Brew Sữa Hạnh Nhân" loading="lazy">
+            <span class="status-badge in_stock">Còn hàng</span>
+          </div>
+          <div class="product-content">
+            <div>
+              <p class="category">Cold Brew</p>
+              <h3>Cold Brew Sữa Hạnh Nhân</h3>
+              <p class="description">Cà phê ủ lạnh kết hợp sữa hạnh nhân, hậu vị hạt nhẹ.</p>
+            </div>
+            <div class="product-footer">
+              <strong>69.000 ₫</strong>
+              <button class="icon-btn quick-view"
+                      type="button"
+                      aria-label="Xem nhanh Cold Brew Sữa Hạnh Nhân"
+                      data-name="Cold Brew Sữa Hạnh Nhân"
+                      data-price="69.000 ₫"
+                      data-description="Cà phê ủ lạnh kết hợp sữa hạnh nhân, hậu vị hạt nhẹ."
+                      data-image="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                      data-category="Cold Brew"
+                      data-status="Còn hàng">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      
+        <article class="product-card reveal" style="--delay: 135ms">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Cold Brew Cam Vàng" loading="lazy">
+            <span class="status-badge in_stock">Còn hàng</span>
+          </div>
+          <div class="product-content">
+            <div>
+              <p class="category">Cold Brew</p>
+              <h3>Cold Brew Cam Vàng</h3>
+              <p class="description">Cold brew ủ 18 giờ, phối cam vàng tạo vị sáng và sạch.</p>
+            </div>
+            <div class="product-footer">
+              <strong>65.000 ₫</strong>
+              <button class="icon-btn quick-view"
+                      type="button"
+                      aria-label="Xem nhanh Cold Brew Cam Vàng"
+                      data-name="Cold Brew Cam Vàng"
+                      data-price="65.000 ₫"
+                      data-description="Cold brew ủ 18 giờ, phối cam vàng tạo vị sáng và sạch."
+                      data-image="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                      data-category="Cold Brew"
+                      data-status="Còn hàng">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      
+        <article class="product-card reveal" style="--delay: 180ms">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1568649929103-28ffbefaca1e?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Bạc Xỉu Kem Muối" loading="lazy">
+            <span class="status-badge in_stock">Còn hàng</span>
+          </div>
+          <div class="product-content">
+            <div>
+              <p class="category">Cà phê truyền thống</p>
+              <h3>Bạc Xỉu Kem Muối</h3>
+              <p class="description">Sữa thơm béo, cà phê nhẹ và kem muối mằn mặn dễ uống.</p>
+            </div>
+            <div class="product-footer">
+              <strong>49.000 ₫</strong>
+              <button class="icon-btn quick-view"
+                      type="button"
+                      aria-label="Xem nhanh Bạc Xỉu Kem Muối"
+                      data-name="Bạc Xỉu Kem Muối"
+                      data-price="49.000 ₫"
+                      data-description="Sữa thơm béo, cà phê nhẹ và kem muối mằn mặn dễ uống."
+                      data-image="https://images.unsplash.com/photo-1568649929103-28ffbefaca1e?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                      data-category="Cà phê truyền thống"
+                      data-status="Còn hàng">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      
+        <article class="product-card reveal" style="--delay: 225ms">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Cà Phê Sữa Đá Sài Gòn" loading="lazy">
+            <span class="status-badge in_stock">Còn hàng</span>
+          </div>
+          <div class="product-content">
+            <div>
+              <p class="category">Cà phê truyền thống</p>
+              <h3>Cà Phê Sữa Đá Sài Gòn</h3>
+              <p class="description">Cà phê phin đậm, sữa đặc béo, đá già đúng kiểu Việt Nam.</p>
+            </div>
+            <div class="product-footer">
+              <strong>39.000 ₫</strong>
+              <button class="icon-btn quick-view"
+                      type="button"
+                      aria-label="Xem nhanh Cà Phê Sữa Đá Sài Gòn"
+                      data-name="Cà Phê Sữa Đá Sài Gòn"
+                      data-price="39.000 ₫"
+                      data-description="Cà phê phin đậm, sữa đặc béo, đá già đúng kiểu Việt Nam."
+                      data-image="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                      data-category="Cà phê truyền thống"
+                      data-status="Còn hàng">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      
+        <article class="product-card reveal" style="--delay: 270ms">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Cappuccino Hạt Rang Mộc" loading="lazy">
+            <span class="status-badge out_of_stock">Hết hàng</span>
+          </div>
+          <div class="product-content">
+            <div>
+              <p class="category">Cà phê pha máy</p>
+              <h3>Cappuccino Hạt Rang Mộc</h3>
+              <p class="description">Espresso cân bằng cùng foam sữa dày, thơm hương hạt rang.</p>
+            </div>
+            <div class="product-footer">
+              <strong>58.000 ₫</strong>
+              <button class="icon-btn quick-view"
+                      type="button"
+                      aria-label="Xem nhanh Cappuccino Hạt Rang Mộc"
+                      data-name="Cappuccino Hạt Rang Mộc"
+                      data-price="58.000 ₫"
+                      data-description="Espresso cân bằng cùng foam sữa dày, thơm hương hạt rang."
+                      data-image="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                      data-category="Cà phê pha máy"
+                      data-status="Hết hàng">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      
+        <article class="product-card reveal" style="--delay: 315ms">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Latte Caramel Muối Biển" loading="lazy">
+            <span class="status-badge in_stock">Còn hàng</span>
+          </div>
+          <div class="product-content">
+            <div>
+              <p class="category">Cà phê pha máy</p>
+              <h3>Latte Caramel Muối Biển</h3>
+              <p class="description">Latte sữa tươi mềm vị, caramel mặn nhẹ và lớp foam mịn.</p>
+            </div>
+            <div class="product-footer">
+              <strong>62.000 ₫</strong>
+              <button class="icon-btn quick-view"
+                      type="button"
+                      aria-label="Xem nhanh Latte Caramel Muối Biển"
+                      data-name="Latte Caramel Muối Biển"
+                      data-price="62.000 ₫"
+                      data-description="Latte sữa tươi mềm vị, caramel mặn nhẹ và lớp foam mịn."
+                      data-image="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                      data-category="Cà phê pha máy"
+                      data-status="Còn hàng">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      
+        <article class="product-card reveal" style="--delay: 360ms">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&amp;fit=crop&amp;w=900&amp;q=85" alt="Espresso Double Shot" loading="lazy">
+            <span class="status-badge in_stock">Còn hàng</span>
+          </div>
+          <div class="product-content">
+            <div>
+              <p class="category">Cà phê pha máy</p>
+              <h3>Espresso Double Shot</h3>
+              <p class="description">Hai shot espresso đậm vị, crema dày, hậu vị chocolate đen.</p>
+            </div>
+            <div class="product-footer">
+              <strong>45.000 ₫</strong>
+              <button class="icon-btn quick-view"
+                      type="button"
+                      aria-label="Xem nhanh Espresso Double Shot"
+                      data-name="Espresso Double Shot"
+                      data-price="45.000 ₫"
+                      data-description="Hai shot espresso đậm vị, crema dày, hậu vị chocolate đen."
+                      data-image="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                      data-category="Cà phê pha máy"
+                      data-status="Còn hàng">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+        </article>
+      
+    </section>
+  
+</main>
+
+<div class="modal" id="productModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close-modal></div>
+  <section class="modal-panel product-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="icon-btn close-modal" type="button" data-close-modal aria-label="Đóng">
+      <i data-lucide="x"></i>
+    </button>
+    <img id="modalImage" src="" alt="">
+    <div>
+      <p class="category" id="modalCategory"></p>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDescription"></p>
+      <div class="modal-meta">
+        <strong id="modalPrice"></strong>
+        <span class="status-badge" id="modalStatus"></span>
+      </div>
+    </div>
+  </section>
+</div>
+
+  </div>
+</body>
+</html>
+
